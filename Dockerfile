@@ -509,14 +509,14 @@ RUN pip install flashtext && \
     pip install pandasql && \
     pip install trackml && \
     #https://github.com/maxpumperla/elephas + Spark is good and fast
-    wget http://apache.mirrors.tds.net/spark/spark-1.5.2/spark-1.5.2-bin-hadoop2.6.tgz -P ~ && \
-    sudo tar zxvf ~/spark-* -C /usr/local && \
-    sudo mv /usr/local/spark-* /usr/local/spark && \
-    export SPARK_HOME=/usr/local/spark && \
-    export PATH=$PATH:$SPARK_HOME/bin && \
-    #dependencys
-    sudo apt-get install liblapack-dev libblas-dev gfortran && \
-    pip install elephas && \
+#     wget http://apache.mirrors.tds.net/spark/spark-1.5.2/spark-1.5.2-bin-hadoop2.6.tgz -P ~ && \
+#     sudo tar zxvf ~/spark-* -C /usr/local && \
+#     sudo mv /usr/local/spark-* /usr/local/spark && \
+#     export SPARK_HOME=/usr/local/spark && \
+#     export PATH=$PATH:$SPARK_HOME/bin && \
+#     #dependencys
+#     sudo apt-get install liblapack-dev libblas-dev gfortran && \
+#     pip install elephas && \
      pip install -U turicreate && \
      # gpu pip install turicreate==5.0b1  
     cd /usr/local/src && git clone --depth=1 https://github.com/jhfjhfj1/autokeras && \
