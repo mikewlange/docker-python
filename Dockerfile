@@ -317,7 +317,7 @@ RUN cd /usr/local/src && git clone https://github.com/iskandr/fancyimpute && \
     cd fancyimpute && \
     python setup.py install && \
     pip install git+https://github.com/pymc-devs/pymc3 && \
-    pip install tifffile && \
+    pip install tifffile && \el
     pip install spectral && \
     pip install descartes && \
     pip install geojson && \
@@ -508,6 +508,20 @@ RUN pip install flashtext && \
     pip install conx && \
     pip install pandasql && \
     pip install trackml && \
+    #https://github.com/maxpumperla/elephas + Spark is good and fast
+    wget http://apache.mirrors.tds.net/spark/spark-1.5.2/spark-1.5.2-bin-hadoop2.6.tgz -P ~ && \
+    sudo tar zxvf ~/spark-* -C /usr/local && \
+    sudo mv /usr/local/spark-* /usr/local/spark && \
+    export SPARK_HOME=/usr/local/spark && \
+    export PATH=$PATH:$SPARK_HOME/bin && \
+    #dependencys
+    sudo apt-get install liblapack-dev libblas-dev gfortran && \
+    pip install elephas && \
+     pip install -U turicreate && \
+     # gpu pip install turicreate==5.0b1  
+    cd /usr/local/src && git clone --depth=1 https://github.com/jhfjhfj1/autokeras && \
+    cd autokeras && python setup.py install && \
+    pip install -U alphapy && \
     ##### ^^^^ Add new contributions above here ^^^^ #####
     # clean up pip cache
     rm -rf /root/.cache/pip/*
